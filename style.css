@@ -212,9 +212,74 @@ img{max-width:100%; display:block;}
   overflow:hidden;
 }
 .case-card summary{
-  list-style:none; cursor:pointer; padding:28px 28px 22px;
+  list-style:none; cursor:pointer; padding:0 0 22px;
 }
 .case-card summary::-webkit-details-marker{display:none;}
+
+/* ---- case visual (app preview mockup) ---- */
+.case-visual{
+  position:relative; height:176px; margin-bottom:22px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 15%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 55%),
+    radial-gradient(circle at 85% 85%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 50%),
+    linear-gradient(160deg, #0b1022, #05070f 75%);
+  display:flex; align-items:center; justify-content:center;
+}
+.case-visual::after{
+  content:""; position:absolute; inset:0;
+  background-image:radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size:14px 14px; opacity:.35; mix-blend-mode:overlay;
+}
+.platforms{
+  position:absolute; top:14px; left:16px; display:flex; gap:7px; z-index:2;
+}
+.platforms .picon{
+  width:26px; height:26px; border-radius:8px;
+  background:rgba(6,9,18,0.55); border:1px solid rgba(255,255,255,0.14);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; backdrop-filter:blur(4px);
+}
+.platforms .picon svg{ width:14px; height:14px; fill:currentColor; }
+.platforms .picon.stroke svg{ fill:none; stroke:currentColor; stroke-width:1.8; }
+
+.stat-float{
+  position:absolute; bottom:14px; right:16px; z-index:2;
+  background:rgba(6,9,18,0.72); border:1px solid var(--accent);
+  color:#fff; font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:.95rem;
+  padding:7px 14px; border-radius:999px; white-space:nowrap;
+  box-shadow:0 6px 20px -6px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.device-mock{
+  position:relative; z-index:2;
+  width:150px; padding:13px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.16);
+  border-radius:16px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 20px 40px -18px rgba(0,0,0,0.6);
+}
+.device-mock-head{ display:flex; align-items:center; gap:8px; margin-bottom:11px; }
+.device-avatar{
+  width:22px; height:22px; border-radius:50%; flex-shrink:0;
+  background:linear-gradient(135deg, var(--accent), #fff2);
+}
+.device-lines{ flex:1; display:flex; flex-direction:column; gap:5px; }
+.device-lines span{ display:block; height:5px; border-radius:3px; background:rgba(255,255,255,0.4); }
+.device-lines span:last-child{ width:55%; background:rgba(255,255,255,0.2); }
+.device-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:5px; }
+.device-grid i{ display:block; padding-top:100%; border-radius:5px; background:var(--accent); }
+.device-grid i:nth-child(2){ opacity:.75; }
+.device-grid i:nth-child(3){ opacity:.5; }
+.device-grid i:nth-child(4){ opacity:.55; }
+.device-grid i:nth-child(5){ opacity:.85; }
+.device-grid i:nth-child(6){ opacity:.4; }
+
+.case-card summary{ padding-left:0; padding-right:0; }
+.case-card summary > *:not(.case-visual){ padding-left:28px; padding-right:28px; }
+.case-card summary > .case-visual{ margin-top:0; }
+
 .case-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; gap:10px;}
 .case-tag{
   font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
@@ -240,9 +305,17 @@ img{max-width:100%; display:block;}
 /* ---------- FREELANCE ---------- */
 .freelance-grid{display:grid; grid-template-columns:repeat(5, 1fr); gap:16px;}
 .freelance-card{
+  --accent:#0466C8;
   background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07);
-  border-radius:14px; padding:22px 18px;
+  border-top:3px solid var(--accent);
+  border-radius:14px; padding:20px 18px;
 }
+.freelance-icon{
+  width:34px; height:34px; border-radius:9px; margin-bottom:14px;
+  background:color-mix(in srgb, var(--accent) 18%, transparent);
+  display:flex; align-items:center; justify-content:center; color:var(--accent);
+}
+.freelance-icon svg{ width:17px; height:17px; fill:currentColor; }
 .freelance-card h4{font-size:1rem; margin-bottom:8px;}
 .freelance-card p{color:var(--ink-2); font-size:.85rem; line-height:1.55;}
 
